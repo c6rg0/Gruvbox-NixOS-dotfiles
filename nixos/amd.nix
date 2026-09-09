@@ -1,14 +1,19 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   nixpkgs.config.allowUnfree = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
   boot.initrd.kernelModules = [ "amdgpu" ];
-  
+
   hardware.amdgpu = {
-    initrd.enable = true; 
+    initrd.enable = true;
   };
-  
+
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [

@@ -5,13 +5,16 @@
     enable = true;
     ohMyZsh = {
       enable = true;
-      plugins = ["git" "z"];
+      plugins = [
+        "git"
+        "z"
+      ];
     };
 
     enableCompletion = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
-    
+
     # Theme
     promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
 
@@ -21,7 +24,7 @@
       export MANPAGER='nvim +Man!'
       export PATH=/home/gabriel/.local/bin:$PATH
     '';
-    
+
     shellAliases = {
       bt = "bluetoothctl";
       gs = "git status";

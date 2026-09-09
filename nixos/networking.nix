@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs; [
     openssh
   ];
-  
+
   networking.networkmanager = {
     enable = true;
     settings.connectivity = {
@@ -17,7 +17,7 @@
   };
 
   services.printing.enable = false;
-  
+
   networking.firewall.enable = true;
 
   # "virbr0" = virtual bridge (for virtualization)

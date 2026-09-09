@@ -1,14 +1,19 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   boot.kernelPackages = pkgs.linuxPackages_7_1;
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
-    
+
     # If this does nothing,
     # use "shift + t" in the boot menu
-    timeout = 0; 
+    timeout = 0;
   };
   boot.tmp.cleanOnBoot = true;
 
@@ -27,16 +32,21 @@
   services.dbus.implementation = "broker";
   security.polkit.enable = true;
 
-  nix.settings.experimental-features = [ 
-    "nix-command" 
-    "flakes" 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
   ];
 
-  # Change "gabriel" if your user is different 
+  # Change "gabriel" if your user is different
   users.users.gabriel = {
     isNormalUser = true;
     description = "Gabriel";
-    extraGroups = [ "networkmanager" "wheel" "docker" "audio"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "audio"
+    ];
     shell = pkgs.zsh;
   };
 
@@ -45,7 +55,7 @@
     QTWEBENGINE_CHROMIUM_FLAGS = "--disable-gpu";
 
     # To fix a problem with ghidra
-    _JAVA_AWT_WM_NONREPARENTING= 1;
+    _JAVA_AWT_WM_NONREPARENTING = 1;
 
     # Change this below if different
     CONFIG_lOCATION = "/home/gabriel/System/";
@@ -63,18 +73,31 @@
   programs.steam = {
     enable = true;
 
-    # package = pkgs.steam.override {  
-      # extraBwrapArgs = [  
-        # "--bind $HOME/steamhome $HOME"  
-        # "--bind $HOME/Games/Steam $HOME/.local/share/Steam"  
-      # ];  
+    # package = pkgs.steam.override {
+    # extraBwrapArgs = [
+    # "--bind $HOME/steamhome $HOME"
+    # "--bind $HOME/Games/Steam $HOME/.local/share/Steam"
+    # ];
     # };
   };
-  
+
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
-      zlib zstd stdenv.cc.cc curl openssl attr libssh bzip2 libxml2 acl libsodium util-linux xz systemd
+      zlib
+      zstd
+      stdenv.cc.cc
+      curl
+      openssl
+      attr
+      libssh
+      bzip2
+      libxml2
+      acl
+      libsodium
+      util-linux
+      xz
+      systemd
     ];
   };
   # https://github.com/nix-community/nix-ld?tab=readme-ov-file#my-pythonnodejsrubyinterpreter-libraries-do-not-find-the-libraries-configured-by-nix-ld

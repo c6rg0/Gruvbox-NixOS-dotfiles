@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   programs.kitty = lib.mkForce {
@@ -28,7 +33,7 @@
       mouse_hide_wait = "-1";
 
       remember_window_size = "no";
-      initial_window_width =  1200;
+      initial_window_width = 1200;
       initial_window_height = 750;
       window_border_width = "0pt";
       enabled_layouts = "tall";

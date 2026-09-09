@@ -21,7 +21,7 @@
     checkConfig = true;
 
     # Fixes common GTK 3 issues
-    wrapperFeatures.gtk = true; 
+    wrapperFeatures.gtk = true;
 
     config = rec {
       defaultWorkspace = "workspace number 1";
@@ -55,53 +55,53 @@
 
       colors = {
         focused = {
-          border      = "#3A2930";
-          background  = "#2F2025";
-          text        = "#f2f2f2";
-          indicator   = "#CFB05F";
+          border = "#3A2930";
+          background = "#2F2025";
+          text = "#f2f2f2";
+          indicator = "#CFB05F";
           childBorder = "#00000000";
         };
         unfocused = {
-          border      = "#2B2B2F";
-          background  = "#161618";
-          text        = "#a89984";
-          indicator   = "#847068";
+          border = "#2B2B2F";
+          background = "#161618";
+          text = "#a89984";
+          indicator = "#847068";
           childBorder = "#00000000";
         };
       };
 
-      bars = [];
+      bars = [ ];
 
-      modifier = "Mod4"; 
-# modifier = meta key = "windows" key
-      terminal = "kitty"; 
+      modifier = "Mod4";
+      # modifier = meta key = "windows" key
+      terminal = "kitty";
       menu = "rofi -show drun";
 
       keybindings = {
-# Program launches
+        # Program launches
         "${modifier}+q" = "exec ${terminal}";
         "${modifier}+Space" = "exec ${menu}";
         "${modifier}+b" = "exec firefox";
         "${modifier}+Shift+l" = "exec swaylock -c 282828";
-# "-c ..." specifies lock background colour
+        # "-c ..." specifies lock background colour
         "${modifier}+Shift+s" = "exec hyprshot -m output";
 
-# Keybinds to disable/enable laptop screen (for external monitor)
+        # Keybinds to disable/enable laptop screen (for external monitor)
         "${modifier}+d" = "exec ld0";
         "${modifier}+Shift+d" = "exec ld1";
 
-# Symbols used for programming
+        # Symbols used for programming
         "${modifier}+o" = "exec wtype '|'";
         "${modifier}+Shift+Escape" = "exec wtype '`'";
-# '\' = RightAlt + Minus
+        # '\' = RightAlt + Minus
 
-        "${modifier}+Shift+r" = "reload"; 
+        "${modifier}+Shift+r" = "reload";
         "${modifier}+k" = "kill";
         "${modifier}+f" = "fullscreen";
         "${modifier}+Escape" = "floating toggle";
-#"${modifier}+Return" = "focus parent"; # No clue what this is
+        #"${modifier}+Return" = "focus parent"; # No clue what this is
 
-# Scratchpad allows hiding programs
+        # Scratchpad allows hiding programs
         "${modifier}+Minus" = "move scratchpad";
         "${modifier}+Equal" = "scratchpad show";
 
@@ -115,14 +115,14 @@
         "${modifier}+Shift+Up" = "move up";
         "${modifier}+Shift+Right" = "move right";
 
-# Pane management (horizontal/vertical)
+        # Pane management (horizontal/vertical)
         "${modifier}+h" = "splitv";
         "${modifier}+v" = "splith";
 
         "XF86MonBrightnessUp" = "exec brightnessctl set 10%+";
         "XF86MonBrightnessDown" = "exec brightnessctl set 10%-";
 
-# Audio
+        # Audio
         "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +2.5%";
         "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -2.5%";
         "${modifier}+Shift+Equal" = "exec pactl set-sink-volume @DEFAULT_SINK@ +2.5%";
@@ -140,7 +140,7 @@
         "XF86AudioNext" = "exec playerctl next";
         "${modifier}+Shift_R" = "exec playerctl next";
 
-# Workspace management 
+        # Workspace management
         "${modifier}+Tab" = "workspace next";
         "${modifier}+1" = "workspace number 1";
         "${modifier}+2" = "workspace number 2";

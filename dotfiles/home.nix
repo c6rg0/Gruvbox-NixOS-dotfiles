@@ -1,7 +1,12 @@
-{ config, pkgs, my-modules, ... }:
+{
+  config,
+  pkgs,
+  my-modules,
+  ...
+}:
 
 {
-  home.enableNixpkgsReleaseCheck = false; 
+  home.enableNixpkgsReleaseCheck = false;
   home.stateVersion = "25.05";
   programs.home-manager.enable = true;
 
@@ -27,9 +32,9 @@
     TERMINAL = "kitty";
   };
 
-  services.dunst.enable = true;  # Notifications
+  services.dunst.enable = true; # Notifications
 
-# For OBS/Screensharing (only tried the OBS part lol)
+  # For OBS/Screensharing (only tried the OBS part lol)
   xdg = {
     portal = {
       enable = true;
@@ -44,7 +49,7 @@
 
       extraPortals = with pkgs; [
         xdg-desktop-portal-wlr
-          xdg-desktop-portal-gtk
+        xdg-desktop-portal-gtk
       ];
     };
   };
@@ -53,4 +58,3 @@
     enable = true;
   };
 }
-

@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   nixpkgs.config.allowUnfree = true;
   services.xserver.videoDrivers = [ "nvidia" ];
-  
+
   hardware.nvidia = {
     # 1650 doesn't support open drivers
     open = false;
@@ -12,7 +17,7 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     powerManagement.enable = false;
   };
-  
+
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
@@ -20,9 +25,9 @@
     ];
   };
 
-  # These variables are wack, 
+  # These variables are wack,
   environment.variables = {
-    LIBVA_DRIVER_NAME="nvidia";
+    LIBVA_DRIVER_NAME = "nvidia";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     GBM_BACKEND = "nvidia-drm";
     XDG_SESSION_TYPE = "wayland";

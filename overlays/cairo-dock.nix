@@ -54,7 +54,7 @@ stdenv.mkDerivation rec {
     wayland
     curl
   ];
-  
+
   patchPhase = ''
     files=$(grep -rl "/usr/share") && echo $files | xargs sed -i 's+/usr/share+/run/current-system/sw/share+g'
   '';

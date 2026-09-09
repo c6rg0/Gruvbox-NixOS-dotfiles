@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   programs.waybar = {
@@ -476,130 +481,135 @@
       }
     '';
 
-    settings = [{
-      layer = "bottom";
-      position = "bottom";
-      height = 30;
-      spacing = 3;
+    settings = [
+      {
+        layer = "bottom";
+        position = "bottom";
+        height = 30;
+        spacing = 3;
 
-      modules-left = [
-        "sway/mode" 
-        "sway/workspaces" 
-      ];
-
-      modules-right = [
-        "tray"
-        "network" 
-        "cpu" 
-        "memory" 
-        "temperature" 
-        "pulseaudio" 
-        "battery" 
-        "clock" 
-      ]; 
-
-      "sway/mode" = {
-        format = "{}";
-        tooltip = false;
-      };
-
-      "sway/workspaces" = {
-        format = "{icon}";
-        disable-scroll-wraparound = true;
-        smooth-scrolling-threshold =  4;
-        enable-bar-scroll = true;
-      };
-
-      tray = {
-        icon-size = 21;
-        spacing = 10;
-      };
-
-      network = {
-        interval = 2;
-        format-wifi = "{essid} ({signalStrength}%)";
-        format-ethernet = "󰈀 {ifname}";
-        format-disconnected = "Disconnected";
-        format-alt = "↓{bandwidthDownBytes} ↑{bandwidthUpBytes}";
-        tooltip = false;
-      };
-
-      cpu = {
-        interval =  2;
-        tooltip = false;
-        format = " {usage}%";
-        format-alt = " {load}%";
-        states = { 
-          warning = 75;
-          critical = 90;
-        };
-      };
-
-      memory = {
-        interval = 5;
-        format = " {used:0.1f}G/{total:0.1f}G";
-        states = {
-          warning = 75;
-          critical = 90;
-        };
-        tooltip = false;
-      };
-
-      battery = {
-        format-time = "{H}:{M:02}";
-        format = "{icon} {capacity}% ({time})";
-        format-charging = "{capacity}% ({time}) ";
-        format-charging-full =  "{icon} {capacity}%";
-        format-full = "{icon} {capacity}%";
-        format-alt = "{icon} {power}W";
-        format-icons = [ 
-          "  " 
-          "  " 
-          "  " 
-          "  " 
-          "  " 
+        modules-left = [
+          "sway/mode"
+          "sway/workspaces"
         ];
-        tooltip =  false;
-      };
 
-      temperature = {
-        critical-threshold = 90;
-        interval = 5;
-        format = "{icon} {temperatureC}°C";
-        format-icons = [
-          ""
-          ""
-          ""
-          ""
-          ""
+        modules-right = [
+          "tray"
+          "network"
+          "cpu"
+          "memory"
+          "temperature"
+          "pulseaudio"
+          "battery"
+          "clock"
         ];
-        tooltip = false;
-      };
 
-      pulseaudio = {
-        format = "{icon} {volume}%";
-        format-bluetooth = "{icon}  {volume}%";
-        format-muted = " Muted";
-        format-icons = {
-          headphone = "<span size='40pt'></span>  ";
-          hands-free = "<span size='40pt'></span> 󱡏 ";
-          headset = "<span size='40pt'></span>  ";
-          phone = "<span size='40pt'></span>  ";
-          portable = "  ";
-          car = "  ";
-          default = [ " " "  "];
+        "sway/mode" = {
+          format = "{}";
+          tooltip = false;
         };
-        scroll-step = 1;
-        on-click = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
-        tooltip = false;
-      };
 
-      "clock" = {
-        format = " {:%H:%M}";
-        format-alt = " {:L%A, %b %d}";
-        tooltip = true;
-        tooltip-format = "{:%Y}";
-       };
-    }];
+        "sway/workspaces" = {
+          format = "{icon}";
+          disable-scroll-wraparound = true;
+          smooth-scrolling-threshold = 4;
+          enable-bar-scroll = true;
+        };
+
+        tray = {
+          icon-size = 21;
+          spacing = 10;
+        };
+
+        network = {
+          interval = 2;
+          format-wifi = "{essid} ({signalStrength}%)";
+          format-ethernet = "󰈀 {ifname}";
+          format-disconnected = "Disconnected";
+          format-alt = "↓{bandwidthDownBytes} ↑{bandwidthUpBytes}";
+          tooltip = false;
+        };
+
+        cpu = {
+          interval = 2;
+          tooltip = false;
+          format = " {usage}%";
+          format-alt = " {load}%";
+          states = {
+            warning = 75;
+            critical = 90;
+          };
+        };
+
+        memory = {
+          interval = 5;
+          format = " {used:0.1f}G/{total:0.1f}G";
+          states = {
+            warning = 75;
+            critical = 90;
+          };
+          tooltip = false;
+        };
+
+        battery = {
+          format-time = "{H}:{M:02}";
+          format = "{icon} {capacity}% ({time})";
+          format-charging = "{capacity}% ({time}) ";
+          format-charging-full = "{icon} {capacity}%";
+          format-full = "{icon} {capacity}%";
+          format-alt = "{icon} {power}W";
+          format-icons = [
+            "  "
+            "  "
+            "  "
+            "  "
+            "  "
+          ];
+          tooltip = false;
+        };
+
+        temperature = {
+          critical-threshold = 90;
+          interval = 5;
+          format = "{icon} {temperatureC}°C";
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
+          tooltip = false;
+        };
+
+        pulseaudio = {
+          format = "{icon} {volume}%";
+          format-bluetooth = "{icon}  {volume}%";
+          format-muted = " Muted";
+          format-icons = {
+            headphone = "<span size='40pt'></span>  ";
+            hands-free = "<span size='40pt'></span> 󱡏 ";
+            headset = "<span size='40pt'></span>  ";
+            phone = "<span size='40pt'></span>  ";
+            portable = "  ";
+            car = "  ";
+            default = [
+              " "
+              "  "
+            ];
+          };
+          scroll-step = 1;
+          on-click = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
+          tooltip = false;
+        };
+
+        "clock" = {
+          format = " {:%H:%M}";
+          format-alt = " {:L%A, %b %d}";
+          tooltip = true;
+          tooltip-format = "{:%Y}";
+        };
+      }
+    ];
   };
 }

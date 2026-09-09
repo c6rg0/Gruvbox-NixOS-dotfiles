@@ -12,12 +12,12 @@
     lua-language-server
     typescript-language-server
     pyright
-		ripgrep
-		fd
+    ripgrep
+    fd
   ];
 
   xdg.configFile = {
-    "nvim/init.lua".source = 
+    "nvim/init.lua".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/System/dotfiles/nvim/init.lua";
   };
 

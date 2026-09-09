@@ -1,4 +1,6 @@
-{ pkgs ? import <nixpkgs> {} }:
+{
+  pkgs ? import <nixpkgs> { },
+}:
 
 pkgs.mkShell {
   buildInputs = with pkgs; [
@@ -13,4 +15,3 @@ pkgs.mkShell {
     echo "Compiler: $(gcc --version | head -n1)"
   '';
 }
-

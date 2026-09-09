@@ -2,21 +2,21 @@
 
 {
   environment.systemPackages = with pkgs; [
-      #Hardware
+    #Hardware
     lm_sensors
     bluez
     mesa
     qemu
     quickemu
 
-      # Root
+    # Root
     wtype
     pavucontrol
     ldacbt
     blueman
     alsa-utils
 
-      # Troubleshooting
+    # Troubleshooting
     vim
     busybox
     unzip
@@ -27,4 +27,3 @@
     linux-manual
   ];
 }
-

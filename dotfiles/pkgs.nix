@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs;[
-# Shell utils
+  home.packages = with pkgs; [
+    # Shell utils
     zsh-powerlevel10k
     zsh-you-should-use
     binutils
@@ -19,7 +19,7 @@
     exiftool
     zip
 
-# Dev tools
+    # Dev tools
     git
     nixpkgs-review
     gh
@@ -38,23 +38,22 @@
     gnumake
     grub2
 
-
-# Languages
+    # Languages
     python315
     nodejs_24
     # typescript
 
-# Miscellaneous utils
+    # Miscellaneous utils
     awww
     wl-clipboard-rs
     gammastep
     alsa-lib
 
-# School/Learning
-    # teams-for-linux 
+    # School/Learning
+    # teams-for-linux
     # anki
 
-# General software
+    # General software
     qimgv
     libreoffice
     pastel
@@ -62,20 +61,20 @@
     gimp
     darktable
     # neomutt
-    krita 
+    krita
     hyprpicker
     hyprshot
     zathura
     obs-studio
     vlc
 
-# Gaming
+    # Gaming
     osu-lazer-bin
     protonup-qt
     wine
     etterna
 
-# Dependencies for screensharing (AFAIK) 
+    # Dependencies for screensharing (AFAIK)
     # slurp
     # zenity
   ];

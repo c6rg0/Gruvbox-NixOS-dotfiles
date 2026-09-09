@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   programs.fastfetch = {
@@ -25,41 +30,45 @@
         };
       };
 
-      modules = [{
-        type = "custom";
-        format = "┌{$1} {#1}Hardware Information{#} {$1}┐";
-      }
+      modules = [
+        {
+          type = "custom";
+          format = "┌{$1} {#1}Hardware Information{#} {$1}┐";
+        }
         "host"
         "cpu"
         "gpu"
         "disk"
         "memory"
-        { 
+        {
           type = "custom";
           format = "├{$1} {#1}Software Information{#} {$1}┤";
-        }{
+        }
+        {
           type = "title";
           keyIcon = "";
           key = "Title";
           format = "{user-name}@{host-name}";
         }
         "kernel"
-          "de"
-          "wm"
-          "terminalfont"
-          "icons"
-          "wallpaper"
-          "packages"
-          "uptime"
-          { 
-            type = "localip";
-            compact = true;
+        "de"
+        "wm"
+        "terminalfont"
+        "icons"
+        "wallpaper"
+        "packages"
+        "uptime"
+        {
+          type = "localip";
+          compact = true;
+        }
+        /*
+          {
+          type = "publicip";
+          timeout = 1000;
           }
-        /* {
-           type = "publicip";
-           timeout = 1000;
-           } */
-        { 
+        */
+        {
           type = "custom";
           format = "└{$1}──────────────────────{$1}┘";
         }
