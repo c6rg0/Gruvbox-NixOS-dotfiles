@@ -7,7 +7,7 @@
 
     extraConfig = {
       modi = "window,drun,run";
-      font = "IosevkaTerm Nerd Font Propo 19";
+      font = "IosevkaTerm Nerd Font Propo 20";
       show-icons = true;
       terminal = "kitty";
     };

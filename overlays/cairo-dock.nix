@@ -55,13 +55,8 @@ stdenv.mkDerivation rec {
     curl
   ];
   
-  preConfigure = ''
-    echo "=== PKG_CONFIG_PATH ===" 
-    echo $PKG_CONFIG_PATH
-    echo "=== gio-unix-2.0 ==="
-    pkg-config --cflags gio-unix-2.0 || echo "NOT FOUND"
-    echo "=== glib.dev include ==="
-    find ${glib.dev} -name "gdesktopappinfo.h" || echo "NOT FOUND IN GLIB.DEV"
+  patchPhase = ''
+    files=$(grep -rl "/usr/share") && echo $files | xargs sed -i 's+/usr/share+/run/current-system/sw/share+g'
   '';
 
   NIX_CFLAGS_COMPILE = toString [

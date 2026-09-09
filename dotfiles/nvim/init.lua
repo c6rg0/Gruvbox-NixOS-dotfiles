@@ -107,7 +107,7 @@ vim.pack.add({
 vim.lsp.enable("lua_ls", "pyright", "ts_ls", "clangd", "qmlls")
 
 vim.lsp.config("clangd", {
-  -- Doesn't work (TO FIX)
+  -- Doesn't work (TOFIX)
   filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto","hpp"},
 })
 
@@ -118,21 +118,19 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live gr
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
---[[
 vim.opt.termguicolors = true
 require("gruvbox").setup({
   --[[
   palette_overrides = {
     bright_green = "#990000",
   },
-  --
-  transparent_mode = true,
+  --]]
+  transparent_mode = false,
 })
 vim.o.background = "dark" -- "dark"/"light"
 vim.cmd([[colorscheme gruvbox]]
---]]
 
-
+--[[
 require("kaolin").setup({
   style = "shiva",
   transparent = false,
@@ -146,6 +144,7 @@ require("kaolin").setup({
   },
 })
 vim.cmd([[colorscheme kaolin]])
+--]]
 
 require('bufferline').setup()
 require('render-markdown').setup({})
